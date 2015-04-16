@@ -1,0 +1,36 @@
+{
+  "name": "browserify-shim-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edull24/browserify-shim-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edull24/browserify-shim-test/issues"
+  },
+  "homepage": "https://github.com/edull24/browserify-shim-test",
+  "devDependencies": {
+    "browserify": "^9.0.8",
+    "browserify-shim": "^3.8.5"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "legacy": "./legacy.js"
+  },
+  "browserify-shim": {
+    "legacy": {
+      "exports": "legacyGlobal"
+    }
+  }
+}
