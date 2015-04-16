@@ -1,9 +1,18 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-require('legacy');
+var legacy = require('legacy');
 
 // I would expect to see the string 'A legacy global variable' written to
 // the console after executing this statement, since it was "exported"
 // in package.json.
+console.log('The value of legacyGlobal is: ' + window.legacyGlobal);
+
+// So technically, the export worked, since we can access it through our local
+// "legacy" variable here. However, I am expecting it to also be automatically
+// set on the global scope, as I have done manually below. This would allow
+// other legacy code to continue to work if it expects/needs the exported
+// value to remain in the global scope.
+
+window.legacyGlobal = legacy;
 console.log('The value of legacyGlobal is: ' + window.legacyGlobal);
 
 },{"legacy":2}],2:[function(require,module,exports){
